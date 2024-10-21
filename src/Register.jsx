@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "./firebase.init";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const handleRegister = (e) => {
@@ -46,6 +47,12 @@ const Register = () => {
           type="submit"
           value="Register"
         />
+        <h2 className="mt-3">
+          Already have an account ? Please{" "}
+          <Link className="text-blue-500 font-bold" to="/login">
+            Login
+          </Link>
+        </h2>
       </form>
     </div>
   );
