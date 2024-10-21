@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "./firebase.init";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Register = () => {
   const handleRegister = (e) => {
@@ -17,6 +18,9 @@ const Register = () => {
         console.log(error.message);
       });
   };
+
+  const [showPass, setShowPass] = useState(false);
+
   return (
     <div>
       <h2 className="text-3xl font-semibold text-center">Register Here</h2>
@@ -36,10 +40,16 @@ const Register = () => {
         <input
           placeholder="Enter Password"
           className="border w-full py-2 px-4"
-          type="password"
+          type={showPass ? "text" : "password"}
           name="password"
           id=""
         />
+        <span
+          className="btn bg-orange-300 mt-3"
+          onClick={() => setShowPass(!showPass)}
+        >
+          Show
+        </span>
         <br />
         <br />
         <input
